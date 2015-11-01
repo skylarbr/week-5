@@ -97,7 +97,7 @@ def getData():
 			newItem['height'] = cell_size-1
 			newItem['value'] = .5
 
-	output["analysis"].append(newItem)
+			output["analysis"].append(newItem)
 
 	q.put('idle')
 

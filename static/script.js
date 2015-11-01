@@ -85,6 +85,9 @@ request = "/getData?lat1=" + lat1 + "&lat2=" + lat2 + "&lng1=" + lng1 + "&lng2="
 			})
 		;
 
+					update();
+		map.on("viewreset", update);
+
 			var topleft = projectPoint(lat2, lng1);
 
 			svg_overlay.attr("width", w)
@@ -105,6 +108,8 @@ request = "/getData?lat1=" + lat1 + "&lat2=" + lat2 + "&lng1=" + lng1 + "&lng2="
 
 		// function to update the data
 		function update() {
+
+			g_overlay.selectAll("rect").remove();
 
 			// get bounding box of data
 		    var bounds = path.bounds(data),
@@ -129,8 +134,7 @@ request = "/getData?lat1=" + lat1 + "&lat2=" + lat2 + "&lng1=" + lng1 + "&lng2="
 		};
 
 		// call function to 
-		update();
-		map.on("viewreset", update);
+
 	});
 
 };
